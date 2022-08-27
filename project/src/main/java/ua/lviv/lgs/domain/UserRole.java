@@ -1,5 +1,5 @@
 package ua.lviv.lgs.domain;
 
-public class UserRole {
-
+public enum UserRole {
+	ADMINISTRATOR, USER;
 }
