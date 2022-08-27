@@ -1,5 +1,9 @@
 package ua.lviv.lgs.dao;
 
-public interface BucketRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import ua.lviv.lgs.domain.Bucket;
+
+public interface BucketRepository extends JpaRepository<Bucket, Integer>{
 
 }
