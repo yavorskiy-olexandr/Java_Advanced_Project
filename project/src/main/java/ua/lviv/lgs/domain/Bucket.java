@@ -2,24 +2,43 @@ package ua.lviv.lgs.domain;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name="bucket")
 public class Bucket {
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Integer id;
-	private Integer userId;
-	private Integer scoresId;
+	@ManyToOne
+	@JoinColumn(name="user_id", referencedColumnName="id")
+	private User user;
+	@ManyToOne
+	@JoinColumn(name="scores_id", referencedColumnName="id")
+	private Scores scoresId;
+	@Column
 	private Date purchaseDate;
 	
 	public Bucket() {
 	}
 
-	public Bucket(Integer userId, Integer scoresId, Date purchaseDate) {
-		this.userId = userId;
+	public Bucket(User user, Scores scoresId, Date purchaseDate) {
+		super();
+		this.user = user;
 		this.scoresId = scoresId;
 		this.purchaseDate = purchaseDate;
 	}
 
-	public Bucket(Integer id, Integer userId, Integer scoresId, Date purchaseDate) {
+	public Bucket(Integer id, User user, Scores scoresId, Date purchaseDate) {
+		super();
 		this.id = id;
-		this.userId = userId;
+		this.user = user;
 		this.scoresId = scoresId;
 		this.purchaseDate = purchaseDate;
 	}
@@ -32,19 +51,19 @@ public class Bucket {
 		this.id = id;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Integer getScoresId() {
+	public Scores getScoresId() {
 		return scoresId;
 	}
 
-	public void setScoresId(Integer scoresId) {
+	public void setScoresId(Scores scoresId) {
 		this.scoresId = scoresId;
 	}
 
@@ -63,7 +82,7 @@ public class Bucket {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((purchaseDate == null) ? 0 : purchaseDate.hashCode());
 		result = prime * result + ((scoresId == null) ? 0 : scoresId.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -91,18 +110,17 @@ public class Bucket {
 				return false;
 		} else if (!scoresId.equals(other.scoresId))
 			return false;
-		if (userId == null) {
-			if (other.userId != null)
+		if (user == null) {
+			if (other.user != null)
 				return false;
-		} else if (!userId.equals(other.userId))
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Bucket [id=" + id + ", userId=" + userId + ", scoresId=" + scoresId + ", purchaseDate=" + purchaseDate
+		return "Bucket [id=" + id + ", user=" + user + ", scoresId=" + scoresId + ", purchaseDate=" + purchaseDate
 				+ "]";
 	}
-	
 }
