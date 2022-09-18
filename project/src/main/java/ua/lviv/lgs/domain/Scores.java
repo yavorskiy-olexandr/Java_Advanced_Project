@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 @Entity
 @Table(name="scores")
@@ -18,6 +19,8 @@ public class Scores {
 	private Double phisics;
 	@Column
 	private Double english;
+	@Lob
+	private String encodedImage;
 	public Scores(Integer id, Double math, Double phisics, Double english) {
 		this.id = id;
 		this.math = math;
@@ -54,6 +57,12 @@ public class Scores {
 	}
 	public void setEnglish(Double english) {
 		this.english = english;
+	}
+	public String getEncodedImage() {
+		return encodedImage;
+	}
+	public void setEncodedImage(String encodedImage) {
+		this.encodedImage = encodedImage;
 	}
 	@Override
 	public int hashCode() {

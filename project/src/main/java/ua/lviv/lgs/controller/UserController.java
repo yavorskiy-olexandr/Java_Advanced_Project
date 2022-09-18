@@ -48,8 +48,8 @@ public class UserController {
     }
 
     @RequestMapping(value ="/create-score", method = RequestMethod.GET)
-    public ModelAndView createScores() {
-        return new ModelAndView("createScores", "scores", new Scores());
+    public String createScores() {
+    	return "createScores";
     }
 
     @RequestMapping(value ="/home", method = RequestMethod.GET)

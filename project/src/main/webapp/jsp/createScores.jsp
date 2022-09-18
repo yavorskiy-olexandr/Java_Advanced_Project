@@ -39,19 +39,23 @@
 
 
 
-				<form:form method="POST" action="${contextPath}/addScores" modelAttribute="scores">
+				<form:form method="POST" action="${contextPath}/addScores" enctype="multipart/form-data">
 					<table>
 						<tr>
-							<td><form:label path="math">math</form:label></td>
-							<td><form:input path="math" /></td>
+							<td>Math</td>
+							<td><input type="number" name="math" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="phisics">Phisics</form:label></td>
-							<td><form:input path="phisics" /></td>
+							<td>Phisics</td>
+							<td><input type="number" name="phisics" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="english">English</form:label></td>
-							<td><form:input path="english" /></td>
+							<td>English</td>
+							<td><input type="number" name="english" /></td>
+						</tr>
+						<tr>
+							<td>Select an image to upload</td>
+							<td><input type="file" name="file" /></td>
 						</tr>
 						<tr>
 							<td><input type="submit" value="Submit" /></td>

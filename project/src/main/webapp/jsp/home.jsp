@@ -59,7 +59,7 @@
 				<c:if test="${not empty scores}">
 					<c:forEach items="${scores}" var="currentScores">
 						<div class="w3-card-4" style="width: 20%; margin: 2%">
-							<img src="https://kaverisias.com/wp-content/uploads/2018/01/catalog-default-img.gif" alt="Norway" style="width: 100%">
+							<img src="data:image/jpg;base64, ${currentScores.encodedImage}" alt="image" style="width: 100%">
 							<div class="w3-container w3-center">
 								<h3>${currentScores.math}</h3>
 								<p>${currentScores.phisics}</p>
