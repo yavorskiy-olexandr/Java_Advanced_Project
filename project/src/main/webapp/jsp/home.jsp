@@ -1,7 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%-- <%@ taglib prefix="security" uri="http://www.springframework.org/security"%> --%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
@@ -33,9 +34,15 @@
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 20%">
 			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/home" class="w3-bar-item w3-button">Home</a> <a
-				href="/create-score" class="w3-bar-item w3-button">Create scores</a>
-			<a href="#" class="w3-bar-item w3-button">Bucket</a>
+			<a href="/home" class="w3-bar-item w3-button">Home</a>
+			 
+			<security:authorize access="hasRole('ROLE_ADMIN')">
+			<a href="/create-score" class="w3-bar-item w3-button">Create scores</a>
+			</security:authorize>
+			
+			<security:authorize access="hasRole('ROLE_USER')">
+			<a href="/buckets" class="w3-bar-item w3-button">Bucket</a>
+			</security:authorize>
 		</div>
 		<!-- Page Content -->
 		<div style="margin-left: 20%">
@@ -59,13 +66,20 @@
 				<c:if test="${not empty scores}">
 					<c:forEach items="${scores}" var="currentScores">
 						<div class="w3-card-4" style="width: 20%; margin: 2%">
-							<img src="https://kaverisias.com/wp-content/uploads/2018/01/catalog-default-img.gif" alt="Norway" style="width: 100%">
+							<img src="data:image/jpg;base64, ${currentScores.encodedImage}" alt="image" style="width: 100%">
 							<div class="w3-container w3-center">
 								<h3>${currentScores.math}</h3>
-								<p>${currentScores.phisics}</p>
+								<p>${currentScores.physics}</p>
 								<p>${currentScores.english}</p>
 							</div>
-							<button class="w3-button w3-block w3-dark-grey">+ add to bucket</button>
+							<security:authorize access="hasRole('ROLE_USER')">
+							<form:form action="${contextPath}/bucket" method="POST" enctype="multipart/form-data">
+								<input type="hidden" value="${currentScores.id}"
+									class="form-control" name="scoresId"> 
+									<input type="submit" class="w3-button w3-block w3-dark-grey"
+									value="+ add to bucket">
+							</form:form>
+							</security:authorize>
 						</div>
 					</c:forEach>
 				</c:if>
