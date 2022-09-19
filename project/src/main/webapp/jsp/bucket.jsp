@@ -1,7 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%-- <%@ taglib prefix="security" uri="http://www.springframework.org/security"%> --%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
@@ -33,9 +34,15 @@
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 20%">
 			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/home" class="w3-bar-item w3-button">Home</a> <a
-				href="/create-score" class="w3-bar-item w3-button">Create scores</a>
+			<a href="/home" class="w3-bar-item w3-button">Home</a>
+			 
+			<security:authorize access="hasRole('ROLE_ADMIN')">
+			<a href="/create-score" class="w3-bar-item w3-button">Create scores</a>
+			</security:authorize>
+			
+			<security:authorize access="hasRole('ROLE_USER')">
 			<a href="/buckets" class="w3-bar-item w3-button">Bucket</a>
+			</security:authorize>
 		</div>
 		<!-- Page Content -->
 		<div style="margin-left: 20%">
