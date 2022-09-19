@@ -43,3 +43,29 @@
 2022-09-19 17:05:05 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
 2022-09-19 17:05:05 [main]  INFO ua.lviv.lgs.Application - Started Application in 7.527 seconds (JVM running for 8.032)
 2022-09-19 17:09:26 [http-nio-8080-exec-1]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-19 18:20:17 [main]  INFO ua.lviv.lgs.Application - Starting Application using Java 1.8.0-262 on user-pc with PID 10820 (D:\javaBasics\Project repository\Java_Advanced_Project\project\target\classes started by user in D:\javaBasics\Project repository\Java_Advanced_Project\project)
+2022-09-19 18:20:17 [main]  INFO ua.lviv.lgs.Application - No active profile set, falling back to 1 default profile: "default"
+2022-09-19 18:20:20 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-19 18:20:20 [main]  INFO o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 151 ms. Found 3 JPA repository interfaces.
+2022-09-19 18:20:23 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-09-19 18:20:23 [main]  INFO o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-19 18:20:23 [main]  INFO o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-19 18:20:25 [main]  INFO org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-09-19 18:20:25 [main]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-19 18:20:25 [main]  INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7747 ms
+2022-09-19 18:20:26 [main]  INFO o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-19 18:20:26 [main]  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-19 18:20:27 [main]  INFO o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-19 18:20:27 [main]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-09-19 18:20:28 [main]  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-09-19 18:20:28 [main]  INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2022-09-19 18:20:32 [main]  INFO o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-19 18:20:32 [main]  INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-19 18:20:33 [main]  WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-19 18:20:40 [main]  INFO o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4f9467, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@98b933, org.springframework.security.web.context.SecurityContextPersistenceFilter@1cacb3e, org.springframework.security.web.header.HeaderWriterFilter@6dc5ea, org.springframework.security.web.csrf.CsrfFilter@1d97e18, org.springframework.security.web.authentication.logout.LogoutFilter@defd69, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@18a8584, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c59b6e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a3d414, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d9d4f, org.springframework.security.web.session.SessionManagementFilter@18de2b2, org.springframework.security.web.access.ExceptionTranslationFilter@c4868, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9e7914]
+2022-09-19 18:20:41 [main]  INFO o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-19 18:20:41 [main]  INFO ua.lviv.lgs.Application - Started Application in 26.981 seconds (JVM running for 30.285)
+2022-09-19 18:21:12 [http-nio-8080-exec-1]  INFO o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-19 18:21:20 [http-nio-8080-exec-7]  INFO ua.lviv.lgs.service.BucketService - Get all scores items
+2022-09-19 18:23:27 [http-nio-8080-exec-5]  INFO ua.lviv.lgs.service.BucketService - Create scores item {} : Scores [id=null, math=1.0, physics=2.0, english=3.0]
+2022-09-19 18:23:28 [http-nio-8080-exec-3]  INFO ua.lviv.lgs.service.BucketService - Get all scores items
