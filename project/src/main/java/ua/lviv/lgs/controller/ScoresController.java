@@ -23,10 +23,10 @@ public class ScoresController {
 	@RequestMapping(value="/addScores", method=RequestMethod.POST)
 	public ModelAndView createScores(@RequestParam MultipartFile file,
 			@RequestParam Double math,
-			@RequestParam Double phisics,
+			@RequestParam Double physics,
 			@RequestParam Double english
 			) throws IOException {
-		scoresService.save(ScoresDTOHelper.createEntity(file, math, phisics, english));
+		scoresService.save(ScoresDTOHelper.createEntity(file, math, physics, english));
 		return new ModelAndView("redirect:/home");
 	}
 }

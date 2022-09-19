@@ -1,6 +1,6 @@
 package ua.lviv.lgs.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,25 +21,27 @@ public class Bucket {
 	private User user;
 	@ManyToOne
 	@JoinColumn(name="scores_id", referencedColumnName="id")
-	private Scores scoresId;
+	private Scores scores;
 	@Column
 	private Date purchaseDate;
 	
 	public Bucket() {
 	}
 
-	public Bucket(User user, Scores scoresId, Date purchaseDate) {
-		super();
+	public Bucket(Integer id) {
+		this.id = id;
+	}
+
+	public Bucket(User user, Scores scores, Date purchaseDate) {
 		this.user = user;
-		this.scoresId = scoresId;
+		this.scores = scores;
 		this.purchaseDate = purchaseDate;
 	}
 
-	public Bucket(Integer id, User user, Scores scoresId, Date purchaseDate) {
-		super();
+	public Bucket(Integer id, User user, Scores scores, Date purchaseDate) {
 		this.id = id;
 		this.user = user;
-		this.scoresId = scoresId;
+		this.scores = scores;
 		this.purchaseDate = purchaseDate;
 	}
 
@@ -59,12 +61,12 @@ public class Bucket {
 		this.user = user;
 	}
 
-	public Scores getScoresId() {
-		return scoresId;
+	public Scores getScores() {
+		return scores;
 	}
 
-	public void setScoresId(Scores scoresId) {
-		this.scoresId = scoresId;
+	public void setScores(Scores scores) {
+		this.scores = scores;
 	}
 
 	public Date getPurchaseDate() {
@@ -81,7 +83,7 @@ public class Bucket {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((purchaseDate == null) ? 0 : purchaseDate.hashCode());
-		result = prime * result + ((scoresId == null) ? 0 : scoresId.hashCode());
+		result = prime * result + ((scores == null) ? 0 : scores.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -105,10 +107,10 @@ public class Bucket {
 				return false;
 		} else if (!purchaseDate.equals(other.purchaseDate))
 			return false;
-		if (scoresId == null) {
-			if (other.scoresId != null)
+		if (scores == null) {
+			if (other.scores != null)
 				return false;
-		} else if (!scoresId.equals(other.scoresId))
+		} else if (!scores.equals(other.scores))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -120,7 +122,7 @@ public class Bucket {
 
 	@Override
 	public String toString() {
-		return "Bucket [id=" + id + ", user=" + user + ", scoresId=" + scoresId + ", purchaseDate=" + purchaseDate
+		return "Bucket [id=" + id + ", user=" + user + ", scoresId=" + scores + ", purchaseDate=" + purchaseDate
 				+ "]";
 	}
 }

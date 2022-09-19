@@ -16,7 +16,7 @@ public class Scores {
 	@Column
 	private Double math;
 	@Column
-	private Double phisics;
+	private Double physics;
 	@Column
 	private Double english;
 	@Lob
@@ -24,12 +24,12 @@ public class Scores {
 	public Scores(Integer id, Double math, Double phisics, Double english) {
 		this.id = id;
 		this.math = math;
-		this.phisics = phisics;
+		this.physics = phisics;
 		this.english = english;
 	}
 	public Scores(Double math, Double phisics, Double english) {
 		this.math = math;
-		this.phisics = phisics;
+		this.physics = phisics;
 		this.english = english;
 	}
 	public Scores() {
@@ -46,11 +46,11 @@ public class Scores {
 	public void setMath(Double math) {
 		this.math = math;
 	}
-	public Double getPhisics() {
-		return phisics;
+	public Double getPhysics() {
+		return physics;
 	}
-	public void setPhisics(Double phisics) {
-		this.phisics = phisics;
+	public void setPhysics(Double physics) {
+		this.physics = physics;
 	}
 	public Double getEnglish() {
 		return english;
@@ -71,7 +71,7 @@ public class Scores {
 		result = prime * result + ((english == null) ? 0 : english.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((math == null) ? 0 : math.hashCode());
-		result = prime * result + ((phisics == null) ? 0 : phisics.hashCode());
+		result = prime * result + ((physics == null) ? 0 : physics.hashCode());
 		return result;
 	}
 	@Override
@@ -98,16 +98,16 @@ public class Scores {
 				return false;
 		} else if (!math.equals(other.math))
 			return false;
-		if (phisics == null) {
-			if (other.phisics != null)
+		if (physics == null) {
+			if (other.physics != null)
 				return false;
-		} else if (!phisics.equals(other.phisics))
+		} else if (!physics.equals(other.physics))
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Scores [id=" + id + ", math=" + math + ", phisics=" + phisics + ", english=" + english + "]";
+		return "Scores [id=" + id + ", math=" + math + ", physics=" + physics + ", english=" + english + "]";
 	}
 	
 }

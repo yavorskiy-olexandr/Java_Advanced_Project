@@ -35,7 +35,7 @@
 			<h3 class="w3-bar-item">Menu</h3>
 			<a href="/home" class="w3-bar-item w3-button">Home</a> <a
 				href="/create-score" class="w3-bar-item w3-button">Create scores</a>
-			<a href="#" class="w3-bar-item w3-button">Bucket</a>
+			<a href="/buckets" class="w3-bar-item w3-button">Bucket</a>
 		</div>
 		<!-- Page Content -->
 		<div style="margin-left: 20%">
@@ -62,10 +62,15 @@
 							<img src="data:image/jpg;base64, ${currentScores.encodedImage}" alt="image" style="width: 100%">
 							<div class="w3-container w3-center">
 								<h3>${currentScores.math}</h3>
-								<p>${currentScores.phisics}</p>
+								<p>${currentScores.physics}</p>
 								<p>${currentScores.english}</p>
 							</div>
-							<button class="w3-button w3-block w3-dark-grey">+ add to bucket</button>
+							<form:form action="${contextPath}/bucket" method="POST" enctype="multipart/form-data">
+								<input type="hidden" value="${currentScores.id}"
+									class="form-control" name="scoresId"> 
+									<input type="submit" class="w3-button w3-block w3-dark-grey"
+									value="+ add to bucket">
+							</form:form>
 						</div>
 					</c:forEach>
 				</c:if>

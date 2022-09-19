@@ -19,4 +19,7 @@ public class ScoresService {
 	public List<Scores> getAllScores(){
 		return scoresRepository.findAll();
 	}
+	public Scores findById(Integer id) {
+		return scoresRepository.findById(id).get();
+	}
 }

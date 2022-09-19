@@ -39,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/").permitAll()
 		.antMatchers("/home").access("hasRole('ROLE_USER')")
 		.antMatchers("/create-score").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+		.antMatchers("/buckets").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 		.anyRequest().permitAll().and()
 		
 		.formLogin().loginPage("/login")

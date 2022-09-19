@@ -17,7 +17,7 @@
 			<h3 class="w3-bar-item">Menu</h3>
 			<a href="/home" class="w3-bar-item w3-button">Home</a> 
 			<a href="/create-score" class="w3-bar-item w3-button">Create scores</a> 
-				<a href="#" class="w3-bar-item w3-button">Bucket</a>
+				<a href="/buckets" class="w3-bar-item w3-button">Bucket</a>
 		</div>
 		<!-- Page Content -->
 		<div style="margin-left: 20%">
@@ -46,8 +46,8 @@
 							<td><input type="number" name="math" /></td>
 						</tr>
 						<tr>
-							<td>Phisics</td>
-							<td><input type="number" name="phisics" /></td>
+							<td>Physics</td>
+							<td><input type="number" name="physics" /></td>
 						</tr>
 						<tr>
 							<td>English</td>
