@@ -26,8 +26,6 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
 <body>
@@ -93,26 +91,33 @@
 							onclick="document.forms['logoutForm'].submit()">Logout</a>
 					</h2>
 				</c:if>
-				<c:if test="${not empty scores}">
-					<c:forEach items="${scores}" var="currentScores">
-						<div class="w3-card-4" style="width: 20%; margin: 2%">
-							<img src="data:image/jpg;base64, ${currentScores.encodedImage}" alt="image" style="width: 100%">
-							<div class="w3-container w3-center">
-								<h3>${currentScores.math}</h3>
-								<p>${currentScores.physics}</p>
-								<p>${currentScores.english}</p>
-							</div>
-							<security:authorize access="hasRole('ROLE_USER')">
-							<form:form action="${contextPath}/bucket" method="POST" enctype="multipart/form-data">
-								<input type="hidden" value="${currentScores.id}"
-									class="form-control" name="scoresId"> 
-									<input type="submit" class="w3-button w3-block w3-dark-grey"
-									value="+ add to bucket">
-							</form:form>
-							</security:authorize>
-						</div>
-					</c:forEach>
-				</c:if>
+				
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Math</th>
+							<th>Physics</th>
+							<th>English</th>
+							<th>Image</th>
+							<th>Purchase Date</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="bucket" items="${bucketItems}">
+							<tr>
+								<td>${bucket.id}</td>
+								<td>${bucket.scores.math}</td>
+								<td>${bucket.scores.physics}</td>
+								<td>${bucket.scores.english}</td>
+								<td><img src="data:image/jpg;base64,${bucket.scores.encodedImage}" alt="image" style="width: 10%"></td>
+								<td>${bucket.purchaseDate}</td>
+								<td><a href="bucket?id= ${bucket.id}">delete</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
