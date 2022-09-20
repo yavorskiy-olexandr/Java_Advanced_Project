@@ -26,23 +26,53 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
 <body>
 	<div class="container" style="width: 100%; margin=0px">
 
 		<!-- Sidebar -->
-		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 20%">
-			<h3 class="w3-bar-item">Menu</h3>
-			<a href="/home" class="w3-bar-item w3-button">Home</a>
-			 
-			<security:authorize access="hasRole('ROLE_ADMIN')">
-			<a href="/create-score" class="w3-bar-item w3-button">Create scores</a>
-			</security:authorize>
-			
-			<security:authorize access="hasRole('ROLE_USER')">
-			<a href="/buckets" class="w3-bar-item w3-button">Bucket</a>
-			</security:authorize>
+		<div class="w3-sidebar" style="width: 10%">
+
+			<div class="list-group" style="margin-top: 40px">
+
+				<div class="list-group-item active">
+					<div>
+						<h3>SCORES</h3>
+					</div>
+					<div>${pageContext.request.userPrincipal.name}</div>
+				</div>
+
+				<a href="/home" class="list-group-item"> <i
+					class="fa fa-comment-o"></i> Home
+				</a>
+
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+					<a href="/create-score" class="list-group-item"> <i
+						class="fa fa-search"></i> Create scores
+					</a>
+				</security:authorize>
+
+				<security:authorize access="hasRole('ROLE_USER')">
+					<a href="/buckets" class="list-group-item"> <i
+						class="fa fa-search"></i> Bucket
+					</a>
+				</security:authorize>
+
+
+				<c:if test="${pageContext.request.userPrincipal.name != null}">
+					<form id="logoutForm" method="POST" action="${contextPath}/logout">
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
+					</form>
+					<a class="list-group-item"
+						onclick="document.forms['logoutForm'].submit()"
+						style="cursor: pointer"> <i class="fa fa-search"></i> Logout
+					</a>
+				</c:if>
+			</div>
 		</div>
 		<!-- Page Content -->
 		<div style="margin-left: 20%">
